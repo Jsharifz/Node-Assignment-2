@@ -14,5 +14,13 @@
     "galleryItems": "1.0.0"
   },
   "devDependencies": {},
-  "description": "Monday, March 9 @ 8pm"
+  "description": "Monday, March 9 @ 8pm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jsharifz/Node-Assignment-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jsharifz/Node-Assignment-2/issues"
+  },
+  "homepage": "https://github.com/Jsharifz/Node-Assignment-2#readme"
 }
