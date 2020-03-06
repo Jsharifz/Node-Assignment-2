@@ -1,0 +1,18 @@
+{
+  "name": "in-class",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "galleryItems": "1.0.0"
+  },
+  "devDependencies": {},
+  "description": "Monday, March 9 @ 8pm"
+}
