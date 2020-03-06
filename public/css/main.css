@@ -1,3 +1,35 @@
 body {
   background-color: skyblue;
+  display: flex;
+  flex-direction: column;
+}
+
+#gallery-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(375px, 0.1fr));
+
+  height: auto;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-color: rgba(236, 255, 255, 0.9);
+}
+
+.card {
+justify-self: center;
+align-self: center;
+
+  width: min-content;
+  margin: 1rem;
+}
+
+a {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
 }

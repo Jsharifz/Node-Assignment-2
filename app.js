@@ -3,35 +3,33 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const pageInfo = require('./pageInfo');
-const galleryItems = require("./gallery");
-app.locals.galleryItems = require("./gallery")
-
+const gallery = require("./gallery");
+app.locals.gallery = gallery;
 
 app.set('view engine', 'ejs'); // allows us to exclude the file extension
 
-const id = galleryItems.id;
-const source = galleryItems.fileName;
-const title = galleryItems.title;
+const id = gallery.id
 
-const imgId = `/gallery/:${id}`
+const idGet = `/gallery/:${id}`
+const imageOfId = ''
 
-app.get('/gallery/:id', function (req, res) {
+app.get(`${idGet}`, function (req, res) {
   res.send(
-    `
-         <figure>
-         <img src="/images/sm/${galleryItems.fileName}" alt="${galleryItems.title}" id="${galleryItems.id}">
-         <figcaption>${galleryItems.title}, by: </figcaption>
-     </figure>
+
+    function myFunction() {
+      document.getElementById("gallery-id").innerHTML = ages.filter(checkId);
+    }
+      `
+      <figure>
+        <img src="images/sm/<%= pictures.fileName %>" alt="<%= pictures.title %>" id="${id}">
+        <figcaption><%= pictures.title %>, by: <%= pictures.attribution.credit %></figcaption>
+      </figure>
     `
   );
 });
 
 app.get('/', function (req, res) {
   res.render('index', pageInfo.index);
-});
-
-app.get('/gallery', function (req, res) {
-  res.render("gallery", pageInfo.gallery)
 });
 
 app.use(express.static(path.join(__dirname, "public")))
