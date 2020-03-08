@@ -2,34 +2,69 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const ejs = require('ejs');
+
 const pageInfo = require('./pageInfo');
 const gallery = require("./gallery");
 app.locals.gallery = gallery;
 
 app.set('view engine', 'ejs'); // allows us to exclude the file extension
 
-const id = gallery.id
+app.get('/gallery/:id', function (req, res) {
 
-const idGet = `/gallery/:${id}`
-const imageOfId = ''
+  const findPhoto = function (myGallery, photoId) {
+    const index = myGallery.findIndex(function (gallery, index) {
+      return gallery.id === photoId
+    })
+    return myGallery[index]
+  }
 
-app.get(`${idGet}`, function (req, res) {
-  res.send(
+  let PId = Number(req.params.id)
 
-    function myFunction() {
-      document.getElementById("gallery-id").innerHTML = ages.filter(checkId);
-    }
-      `
-      <figure>
-        <img src="images/sm/<%= pictures.fileName %>" alt="<%= pictures.title %>" id="${id}">
-        <figcaption><%= pictures.title %>, by: <%= pictures.attribution.credit %></figcaption>
-      </figure>
-    `
-  );
+  let photoById = findPhoto(gallery, PId)
+
+  res.send(`
+
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${photoById.title}</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" media="screen" />
+  </head>
+  
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/gallery">Gallery</a>
+    </nav>
+
+    <main>
+  <h1>${photoById.title}</h1>
+
+    <figure id="endpoint">
+      <img src="/images/lrg/${photoById.fileName}" alt="${photoById.title}" id="${PId}">
+      <figcaption>${photoById.title}, by: <em><a href="${photoById.attribution.url}" target="_blank">${photoById.attribution.credit}</a></em> (${photoById.attribution.source})</figcaption>
+    </figure>
+
+    </main>
+    <footer>Javad Sharifzadeh-Najafi - Web Dev 2020 - SAIT</footer>
+
+</body>
+
+</html>
+
+  `);
 });
 
 app.get('/', function (req, res) {
   res.render('index', pageInfo.index);
+});
+
+app.get('/gallery', function (req, res) {
+  res.render('gallery', pageInfo.gallery);
+
 });
 
 app.use(express.static(path.join(__dirname, "public")))

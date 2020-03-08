@@ -1,9 +1,12 @@
 {
   "name": "in-class",
   "version": "1.0.0",
+  "engines": {
+    "node": "^12.16.1"
+  },
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

@@ -1,32 +1,11 @@
 <%- include('partials/header') %>
 
-
-<main>
-  <header>
-    <h1><%= title %></h1>
-  </header>
-  <p></p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit cumque iure labore enim, consequuntur natus quis ab
-    totam quisquam nemo! Optio doloremque, totam quam debitis temporibus accusantium iste, officia quidem nemo magnam
-    repudiandae ratione id facilis repellendus neque dolor eum accusamus? Error quam illum maiores iusto sed cumque
-    optio dolorum?</p>
-
-  <section id="gallery-card">
-    <% for (pictures of gallery) {
-      %>
-
-    <div class="card">
-      <a href="/<%= pictures.id %>"">
-    <figure>
-        <img src=" images/sm/<%= pictures.fileName %>" alt="<%= pictures.title %>" id="<%= pictures.id %>">
-        <figcaption><%= pictures.title %>, by: <%= pictures.attribution.credit %></figcaption>
-        </figure>
-      </a>
-    </div>
-
-    <%
-    } %>
-  </section>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit cumque iure labore enim, consequuntur natus quis
+  ab
+  totam quisquam nemo! Optio doloremque, totam quam debitis temporibus accusantium iste, officia quidem nemo
+  magnam
+  repudiandae ratione id facilis repellendus neque dolor eum accusamus? Error quam illum maiores iusto sed cumque
+  optio dolorum?</p>
 
 </main>
 
