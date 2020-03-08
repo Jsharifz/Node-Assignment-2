@@ -1,4 +1,4 @@
-module.exports = [
+module.exports = [ // this function exports the object array as a module thather than the script being sourced
   {
     id: 237,
     title: 'Puppy',
